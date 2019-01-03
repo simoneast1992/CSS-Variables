@@ -1,6 +1,8 @@
 :root {
-    --main-bg: #00aaff;
-    --secondary-bg: #ffbb00;
+    --primary-bg: #00aaaa;
+    --white: #ffffff;
+    --padding: 2;
+    --regular-font: 1;
 }
 
 * {
@@ -21,11 +23,27 @@ body {
 
 .large-box {
     width: fit-content;
-    background: var(--main-bg, blue);
-    padding: 30px;
+    background: var(--primary-bg, teal);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--padding) * 1px);
 }
 
 .small-box {
-    background: var(--secondary-bg, orange);
-    padding: 30px;
+    background: var(--white, white);
+    width: fit-content;
+    padding: calc(var(--padding) * 10px);
+    font-size: calc(var(--regular-font) * 1em);
+    font-weight: 400;
+    color: var(--primary-bg, teal);
+
+    transition: 0.5s box-shadow, 0.5s color;
+}
+
+.large-box:hover > .small-box {
+    box-shadow: 0px 0px 0px 3rem inset var(--primary-bg);
+    color: var(--white, white);
+    cursor: pointer;
 }
