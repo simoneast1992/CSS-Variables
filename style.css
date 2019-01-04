@@ -1,10 +1,9 @@
 :root {
-    --primary-bg: #00aaaa;
     --secondary-bg: #eebb00;
     --white: #ffffff;
     --padding: 2;
+    --margin: 2;
     --regular-font: 1;
-    --box-shadow: initial;
 }
 
 * {
@@ -25,12 +24,33 @@ body {
 
 .large-box {
     width: fit-content;
-    background: var(--primary-bg, teal);
+    background: var(--primary-bg, black);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: calc(var(--padding) * 1px);
+    margin: calc(var(--padding) * 4px);
+}
+
+.large-box.blue {
+    --primary-bg: #00aadd;
+}
+
+.large-box.blue .small-box::before {
+    content: "This is a box";
+    display: block;
+    transition: 0.5s content;
+}
+
+.large-box.red {
+    --primary-bg: #ee0000;
+}
+
+.large-box.red .small-box::before {
+    content: "This is different a box";
+    display: block;
+    transition: 0.5s content;
 }
 
 .small-box {
@@ -42,14 +62,7 @@ body {
     font-weight: 400;
     text-align: center;
     color: var(--primary-bg, teal);
-
     transition: 0.5s box-shadow, 0.5s color;
-}
-
-.small-box::before {
-    content: "This is a box";
-    display: block;
-    transition: 0.5s content;
 }
 
 .large-box:hover > .small-box {
